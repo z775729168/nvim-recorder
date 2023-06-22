@@ -239,10 +239,10 @@ function M.setup(config)
 	local yankKey = config.mapping.yankMacro or defaultKeymaps.yankMacro
 	breakPointKey = config.mapping.addBreakPoint or defaultKeymaps.addBreakPoint
 
-	keymap("n", toggleKey, toggleRecording, { desc = " Start/Stop Recording" })
-	keymap("n", switchKey, switchMacroSlot, { desc = " Switch Macro Slot" })
-	keymap("n", editKey, editMacro, { desc = " Edit Macro" })
-	keymap("n", yankKey, yankMacro, { desc = " Yank Macro" })
+	keymap("n", toggleKey, toggleRecording, { desc = "󰃼 Start/Stop Recording" })
+	keymap("n", switchKey, switchMacroSlot, { desc = "󰃼 Switch Macro Slot" })
+	keymap("n", editKey, editMacro, { desc = "󰃼 Edit Macro" })
+	keymap("n", yankKey, yankMacro, { desc = "󰃼 Yank Macro" })
 
 	-- (experimental) if true, nvim-recorder and dap will use shared keymaps:
 	-- 1) `addBreakPoint` will map to `dap.toggle_breakpoint()` outside
@@ -251,9 +251,9 @@ function M.setup(config)
 	-- dap-breakpoint. If there is no dap breakpoint, will play the current
 	-- macro-slot instead
 	dapSharedKeymaps = config.dapSharedKeymaps or false
-	local desc1 = dapSharedKeymaps and "/ Breakpoint" or " Insert Macro Breakpoint."
+	local desc1 = dapSharedKeymaps and "/󰃼 Breakpoint" or "󰃼 Insert Macro Breakpoint."
 	keymap("n", breakPointKey, addBreakPoint, { desc = desc1 })
-	local desc2 = dapSharedKeymaps and "/ Continue/Play" or " Play Macro"
+	local desc2 = dapSharedKeymaps and "/󰃼 Continue/Play" or "󰃼 Play Macro"
 	keymap("n", playKey, playRecording, { desc = desc2 })
 
 	-- clearing
@@ -297,7 +297,7 @@ function M.displaySlots()
 
 	local output = table.concat(out)
 	if output == "[ ]" then return "" end
-	return " " .. output
+	return "󰃼 " .. output
 end
 
 --------------------------------------------------------------------------------
